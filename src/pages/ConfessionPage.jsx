@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useConvince } from '../hooks/useConvince';
 import '../ConfessionPage.css';
 
 const ConfessionPage = () => {
     const navigate = useNavigate();
+    const { handleNoInteraction, getNoText, getYesStyle, getNoStyle } = useConvince();
 
     const paragraphs = [
         "Listen, Prachi…",
@@ -47,6 +49,7 @@ const ConfessionPage = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="btn-gold"
+                            style={getYesStyle()}
                             onClick={() => navigate('/success')}
                         >
                             Yes, I will
@@ -54,9 +57,11 @@ const ConfessionPage = () => {
 
                         <motion.button
                             className="btn-outline"
-                            onClick={() => alert("Are you sure? Try the other button 😉")}
+                            style={getNoStyle()}
+                            onMouseEnter={handleNoInteraction}
+                            onClick={handleNoInteraction}
                         >
-                            No
+                            {getNoText()}
                         </motion.button>
                     </div>
                 </motion.div>

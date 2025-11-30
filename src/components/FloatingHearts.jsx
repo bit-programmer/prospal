@@ -27,7 +27,7 @@ const FloatingHearts = () => {
             pointerEvents: 'none',
             zIndex: 0,
             overflow: 'hidden',
-            background: 'radial-gradient(circle at center, #250909 0%, #0f0505 100%)' // Subtle vignette
+            background: 'radial-gradient(circle at center, #ffe8ec 0%, #fff5f7 100%)' // Light vignette
         }}>
             {particles.map((p) => (
                 <motion.div
@@ -55,8 +55,8 @@ const FloatingHearts = () => {
                         width: `${p.size}px`,
                         height: `${p.size}px`,
                         borderRadius: '50%',
-                        backgroundColor: '#ffb703', // Gold glow
-                        boxShadow: `0 0 ${p.size * 4}px ${p.size * 2}px rgba(255, 183, 3, 0.4)` // Glowing effect
+                        backgroundColor: '#c9184a', // Rose/red glow
+                        boxShadow: `0 0 ${p.size * 4}px ${p.size * 2}px rgba(201, 24, 74, 0.3)` // Glowing effect
                     }}
                 />
             ))}

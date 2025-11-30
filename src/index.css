@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  /* Premium Dark Romantic Palette */
-  --color-bg: #0f0505;
-  /* Deepest Burgundy/Black */
-  --color-text-primary: #ffecd1;
-  /* Champagne Gold */
-  --color-text-secondary: #d4a373;
-  /* Muted Gold */
+  /* Light Romantic Palette */
+  --color-bg: #fff5f7;
+  /* Soft blush white */
+  --color-text-primary: #2d1b1b;
+  /* Deep brown */
+  --color-text-secondary: #8b6f6f;
+  /* Muted brown */
   --color-accent: #c9184a;
   /* Vibrant Red */
-  --color-gold: #ffb703;
-  /* Bright Gold for highlights */
-  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-gold: #d4a373;
+  /* Warm gold */
+  --color-overlay: rgba(255, 255, 255, 0.9);
 
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
