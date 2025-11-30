@@ -28,16 +28,16 @@ export function useConvince() {
         setNoCount(noCount + 1);
         setIsMoving(true);
 
-        // Safe bounds calculation
-        const buttonWidth = 150; // Approx width
-        const buttonHeight = 50; // Approx height
-        const padding = 20; // Safety margin
+        // Safe bounds calculation with larger margins
+        const buttonWidth = 200; // Increased estimate
+        const buttonHeight = 80; // Increased estimate
+        const padding = 50; // Larger safety margin
 
-        const maxX = window.innerWidth - buttonWidth - padding;
-        const maxY = window.innerHeight - buttonHeight - padding;
+        const maxX = Math.max(padding, window.innerWidth - buttonWidth - padding);
+        const maxY = Math.max(padding, window.innerHeight - buttonHeight - padding);
 
-        const newX = Math.max(padding, Math.random() * maxX);
-        const newY = Math.max(padding, Math.random() * maxY);
+        const newX = Math.max(padding, Math.min(Math.random() * maxX, maxX));
+        const newY = Math.max(padding, Math.min(Math.random() * maxY, maxY));
 
         setPosition({ x: newX, y: newY });
     };
@@ -61,6 +61,8 @@ export function useConvince() {
             top: position.y,
             transition: 'all 0.2s ease',
             zIndex: 50,
+            backgroundColor: 'white', // Solid background for visibility
+            border: '2px solid var(--color-text-secondary)',
         };
     };
 
