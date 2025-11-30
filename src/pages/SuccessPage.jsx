@@ -5,6 +5,9 @@ import '../SuccessPage.css';
 
 const SuccessPage = () => {
     useEffect(() => {
+        // Scroll to top on mount
+        window.scrollTo(0, 0);
+
         const duration = 15 * 1000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };

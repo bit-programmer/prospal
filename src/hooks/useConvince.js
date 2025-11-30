@@ -28,10 +28,16 @@ export function useConvince() {
         setNoCount(noCount + 1);
         setIsMoving(true);
 
-        // Calculate random position within viewport
-        // Using slightly smaller range to keep button visible
-        const newX = Math.random() * (window.innerWidth - 200);
-        const newY = Math.random() * (window.innerHeight - 100);
+        // Safe bounds calculation
+        const buttonWidth = 150; // Approx width
+        const buttonHeight = 50; // Approx height
+        const padding = 20; // Safety margin
+
+        const maxX = window.innerWidth - buttonWidth - padding;
+        const maxY = window.innerHeight - buttonHeight - padding;
+
+        const newX = Math.max(padding, Math.random() * maxX);
+        const newY = Math.max(padding, Math.random() * maxY);
 
         setPosition({ x: newX, y: newY });
     };
