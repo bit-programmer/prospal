@@ -1,0 +1,177 @@
+/* Envelope Styles */
+.envelope-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    /* Limit max width */
+    aspect-ratio: 3/2;
+    /* Maintain envelope shape */
+    height: auto;
+    /* Let aspect-ratio control height */
+    background-color: transparent;
+    /* Fix background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    perspective: 1000px;
+    z-index: 10;
+    margin: 0 auto;
+    /* Center it */
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #d4a373;
+    /* Envelope color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #bc8a5f;
+    /* Slightly darker */
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out, z-index 0.6s;
+    z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope-pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d4a373;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+}
+
+/* This creates the bottom triangle look of the envelope */
+.envelope-pocket::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+    pointer-events: none;
+}
+
+.card {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: white;
+    transition: transform 0.6s ease-in-out 0.4s;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.envelope.open .card {
+    transform: translateY(-120px);
+    z-index: 4;
+    /* Moves above the pocket when out */
+}
+
+.wax-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #9d0208;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d4a373;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.envelope.open .wax-seal {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Expanded Card View (Overlay) */
+.card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.expanded-card {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: scale(0.8);
+    animation: scaleUp 0.5s forwards;
+}
+
+@media (max-width: 768px) {
+    .expanded-card {
+        padding: 1.5rem;
+        width: 95%;
+    }
+}
+
+@keyframes scaleUp {
+    to {
+        transform: scale(1);
+    }
+}
+
+.paper-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.elegant-border {
+    border: 1px solid #d4a373;
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

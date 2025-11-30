@@ -1,0 +1,108 @@
+/* Cinematic Landing Page */
+.landing-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.cinematic-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+.cinematic-heading {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    text-shadow: 0 0 20px rgba(255, 236, 209, 0.3);
+    /* Soft glow */
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.cinematic-heading span {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.btn-gold {
+    background: transparent;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    padding: 1rem 3rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold:hover {
+    background: var(--color-text-primary);
+    color: var(--color-bg);
+    box-shadow: 0 0 30px rgba(255, 236, 209, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--color-text-secondary);
+    color: var(--color-text-secondary);
+    padding: 1rem 3rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+    .cinematic-heading {
+        font-size: 2.2rem;
+    }
+
+    .cinematic-heading span {
+        font-size: 1rem;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 2rem auto 0;
+    }
+
+    .btn-gold,
+    .btn-outline {
+        width: 100%;
+    }
+}

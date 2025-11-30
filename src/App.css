@@ -1,0 +1,82 @@
+/* App specific styles if needed */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.confession-wrapper {
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.confession-text {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.confession-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.success-content {
+  text-align: center;
+}
+
+.celebration-gif {
+  max-width: 100%;
+  border-radius: 15px;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar styling for confession text */
+.confession-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.confession-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.confession-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+.confession-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
