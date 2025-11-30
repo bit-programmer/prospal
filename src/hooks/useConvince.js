@@ -28,16 +28,20 @@ export function useConvince() {
         setNoCount(noCount + 1);
         setIsMoving(true);
 
+        // Mobile detection
+        const isMobile = window.innerWidth <= 768;
+
         // Safe bounds calculation with larger margins
-        const buttonWidth = 200; // Increased estimate
-        const buttonHeight = 80; // Increased estimate
-        const padding = 50; // Larger safety margin
+        const buttonWidth = isMobile ? 250 : 200; // Even larger on mobile
+        const buttonHeight = isMobile ? 100 : 80; // Taller on mobile
+        const padding = isMobile ? 80 : 50; // Much larger safety margin on mobile
 
         const maxX = Math.max(padding, window.innerWidth - buttonWidth - padding);
         const maxY = Math.max(padding, window.innerHeight - buttonHeight - padding);
 
-        const newX = Math.max(padding, Math.min(Math.random() * maxX, maxX));
-        const newY = Math.max(padding, Math.min(Math.random() * maxY, maxY));
+        // Ensure we stay within bounds
+        const newX = Math.max(padding, Math.min(Math.random() * (maxX - padding), maxX - padding));
+        const newY = Math.max(padding, Math.min(Math.random() * (maxY - padding), maxY - padding));
 
         setPosition({ x: newX, y: newY });
     };
