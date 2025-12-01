@@ -33,15 +33,9 @@ const ConfessionPage = () => {
             <div className="story-container">
                 <div className="story-text">
                     {paragraphs.map((text, index) => (
-                        <motion.p
-                            key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 1, delay: index * 0.2 }}
-                        >
+                        <p key={index}>
                             {text}
-                        </motion.p>
+                        </p>
                     ))}
                 </div>
 
