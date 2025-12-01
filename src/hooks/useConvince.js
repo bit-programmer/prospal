@@ -23,9 +23,21 @@ export function useConvince() {
     const [noCount, setNoCount] = useState(0);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isMoving, setIsMoving] = useState(false);
+    const [noEnabled, setNoEnabled] = useState(false);
+
+    const NO_CLICK_THRESHOLD = 10; // Enable "No" button after 10 clicks
 
     const handleNoInteraction = () => {
-        setNoCount(noCount + 1);
+        const newCount = noCount + 1;
+        setNoCount(newCount);
+
+        // Check if we've reached the threshold to enable the No button
+        if (newCount >= NO_CLICK_THRESHOLD) {
+            setNoEnabled(true);
+            // Don't move the button anymore once it's enabled
+            return;
+        }
+
         setIsMoving(true);
 
         // Mobile detection
@@ -46,7 +58,16 @@ export function useConvince() {
         setPosition({ x: newX, y: newY });
     };
 
+    const handleNoClick = () => {
+        // Just return whether the button is enabled
+        // The API call will be made from the RejectionPage
+        return noEnabled;
+    };
+
     const getNoText = () => {
+        if (noEnabled) {
+            return "No, I'm sure";
+        }
         return PHRASES[Math.min(noCount, PHRASES.length - 1)];
     };
 
@@ -59,6 +80,13 @@ export function useConvince() {
 
     const getNoStyle = () => {
         if (!isMoving) return {};
+        if (noEnabled) {
+            // Return to normal position when enabled
+            return {
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+            };
+        }
         return {
             position: 'fixed',
             left: position.x,
@@ -72,7 +100,9 @@ export function useConvince() {
 
     return {
         noCount,
+        noEnabled,
         handleNoInteraction,
+        handleNoClick,
         getNoText,
         getYesStyle,
         getNoStyle,

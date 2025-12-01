@@ -8,6 +8,19 @@ const SuccessPage = () => {
         // Scroll to top on mount
         window.scrollTo(0, 0);
 
+        // Call the API to notify acceptance
+        fetch('https://vulerability-engine.vercel.app/notify?isAccepted=true')
+            .then(response => {
+                if (response.ok) {
+                    console.log('Notification sent successfully');
+                } else {
+                    console.error('Failed to send notification');
+                }
+            })
+            .catch(error => {
+                console.error('Error sending notification:', error);
+            });
+
         const duration = 15 * 1000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };

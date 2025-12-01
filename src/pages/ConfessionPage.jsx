@@ -6,7 +6,7 @@ import '../ConfessionPage.css';
 
 const ConfessionPage = () => {
     const navigate = useNavigate();
-    const { handleNoInteraction, getNoText, getYesStyle, getNoStyle } = useConvince();
+    const { noEnabled, handleNoInteraction, handleNoClick, getNoText, getYesStyle, getNoStyle } = useConvince();
 
     const paragraphs = [
         "Listen, Prachi…",
@@ -68,8 +68,8 @@ const ConfessionPage = () => {
                         <motion.button
                             className="btn-outline"
                             style={getNoStyle()}
-                            onMouseEnter={handleNoInteraction}
-                            onClick={handleNoInteraction}
+                            onMouseEnter={!noEnabled ? handleNoInteraction : undefined}
+                            onClick={noEnabled ? () => navigate('/rejection') : handleNoInteraction}
                         >
                             {getNoText()}
                         </motion.button>
