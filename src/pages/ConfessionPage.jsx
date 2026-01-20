@@ -10,12 +10,16 @@ const ConfessionPage = () => {
 
     const paragraphs = [
         "Listen, Devanshi…",
-        "I don’t really know what changed between us. We were so happy—I was genuinely excited to meet you and to talk to you every day.",
-        "Somewhere along the way, our conversations started fading, and I wasn’t ready for that because I had already started seeing a future with you.",
-        "When we first started talking, I was honestly so happy—sharing my day with you, listening to yours, and feeling that interest from both sides.",
-        "It felt natural. Somehow things changed, but I don’t want to let that be the end of it.",
-        "I want us to talk like we used to, spend time together, and reconnect. I truly believe we vibe really well—it’ll feel like an adventure",
-        "Concerts you like, trips, little moments—everything. I just want you to know that I have real feelings for you."
+        "I don’t know exactly when things shifted between us, but I know what hasn’t changed—how I feel about you. When we first started talking, it felt easy and genuine",
+        "I was excited to wake up and talk to you, to share my day, to listen to yours. Somewhere along the way, that started fading, and I wasn’t ready for it, because by then I had already started seeing a future with you.",
+        "I don’t want to let something so meaningful just slip away without trying. I truly believe what we have is real—that we vibe naturally, that being together feels right.",
+        "Talking, laughing, discovering things together… it feels like an adventure waiting to happen",
+        "Concerts you love, visiting Derasar like Samet Shikhar and Palitana, trips, quiet moments—everything feels more special when I imagine it with you.",
+        "I want you to know this clearly: you can trust me. If you choose me, you will never regret that decision.",
+        "I won’t love you halfway. Some days it won’t be 50–50—it’ll be 80–20, 90–10, whatever it needs to be",
+        "I’ll put in the effort, I’ll show up, and I’ll always stand by your side—in happiness, in confusion, in everything.",
+        "I have real feelings for you, Devanshi. And today, I’m choosing to be honest about them.",
+        "I don’t know what the future holds, but I know this—I want that future to be with you."
     ];
 
     return (
@@ -36,7 +40,7 @@ const ConfessionPage = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <h2>Will you be mine?</h2>
+                    <h2>Will you give us a chance and walk this journey with me?</h2>
 
                     <div className="buttons-container">
                         <motion.button
