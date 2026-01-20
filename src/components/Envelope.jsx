@@ -24,7 +24,7 @@ const Envelope = ({ onOpen, children }) => {
                 <div className="card paper-texture">
                     <div className="elegant-border">
                         <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--color-text-primary)' }}>
-                            For Prachi
+                            For Devanshi
                         </p>
                     </div>
                 </div>
